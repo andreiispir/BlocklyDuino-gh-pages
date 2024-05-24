@@ -103,19 +103,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
         options, args = parser.parse_args()
 
-        length = int(self.headers.getheader('content-length'))
+        length = int(self.headers.get('content-length'))
         if length:
             text = self.rfile.read(length)
+            text_str = text.decode('utf-8')
                         
-            print ("sketch to upload: " + text)
+            print ("sketch to upload: " + text_str)
 
             dirname = tempfile.mkdtemp()
             sketchname = os.path.join(dirname, os.path.basename(dirname)) + ".ino"
-            f = open(sketchname, "wb")
-            f.write(text + "\n")
-            f.close()
+            with open(sketchname, "wb") as f:
+                f.write(text + b"\n")  # Append newline as bytes
 
-            print ("created sketch at %s" % (sketchname,))
+            print("created sketch at %s" % (sketchname,))
         
             # invoke arduino to build/upload
             compile_args = [
