@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlocklyDuino</title>
+
+<style>
+
+    body {
+        background-color: #FFC20A;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        font-size: 200%;
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 20vh;
+    }
+
+    h1 {
+        color: #0C7BDC;
+    }
+
+    .btn {
+        margin-top: 20px;
+        font-size: 60%;
+        background-color: #0C7BDC;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+        border-radius: 3px;
+        border: 5px solid #994F00;
+    }
+
+    .btn:active {
+        border: 1px solid blue !important;
+    }
+
+    .btn:hover {
+        box-shadow: 7px 5px 5px #888;
+        background-color: #32CD32;
+    }
+
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+    <h1>BlocklyDuino</h1>
+    <p>Choose game:</p>
+    <button class="btn" id="mazeBtn">Maze</button>
+    <button class="btn" id="musicBtn">Music</button>
+    </div>
+
+    <script>
+        const mazeBtn = document.getElementById("mazeBtn");
+        const musicBtn = document.getElementById("musicBtn");
+
+        mazeBtn.addEventListener("click", function() {
+            window.location.href = 'indexMaze.html';
+        });
+
+        musicBtn.addEventListener("click", function() {
+            window.location.href = 'indexMusic.html';
+        });
+    </script>
+
+</body>
+</html>
