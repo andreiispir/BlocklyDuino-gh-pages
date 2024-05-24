@@ -21448,8 +21448,17 @@ Blockly.Flyout.prototype.createBlockFunc_ = function (a) {
       f = Blockly.getSvgXY_(f);
       d.moveBy(e.x - f.x, e.y - f.y);
 
+      var blockType = d.type;
+      switch (blockType) {
+        case "inout_tone":
+          b.targetWorkspace_.playAudio("sound1");
+          break;
+        default:
+          b.targetWorkspace_.playAudio("click");
+      }
+
       // Soundeffect
-      b.targetWorkspace_.playAudio("click");
+      //b.targetWorkspace_.playAudio("click");
 
       b.autoClose ? b.hide() : b.filterForCapacity_();
       d.onMouseDown_(c);
@@ -22448,6 +22457,13 @@ Blockly.init_ = function (a) {
       ],
       "delete"
     );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "sound1.wav",
+      ],
+      "sound1"
+    )
 
     a.loadAudio_(
         [
