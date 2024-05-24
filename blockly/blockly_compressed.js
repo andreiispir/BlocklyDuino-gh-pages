@@ -21447,6 +21447,10 @@ Blockly.Flyout.prototype.createBlockFunc_ = function (a) {
       if (!f) throw "block is not rendered.";
       f = Blockly.getSvgXY_(f);
       d.moveBy(e.x - f.x, e.y - f.y);
+
+      // Soundeffect
+      b.targetWorkspace_.playAudio("click");
+
       b.autoClose ? b.hide() : b.filterForCapacity_();
       d.onMouseDown_(c);
     }
