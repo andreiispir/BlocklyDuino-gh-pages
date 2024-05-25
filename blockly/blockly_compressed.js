@@ -19353,8 +19353,20 @@ Blockly.BlockSvg.prototype.renderDrawLeft_ = function (a, b, c, d) {
 };
 
 // additional function to play sound
-Blockly.BlockSvg.prototype.sound_loop_blinking = function() {
-    this.workspace.playAudio("loop_blinking");
+Blockly.BlockSvg.prototype.sound_sound1 = function() {
+  this.workspace.playAudio("sound1");
+}
+
+Blockly.BlockSvg.prototype.sound_sound2 = function() {
+  this.workspace.playAudio("sound2");
+}
+
+Blockly.BlockSvg.prototype.sound_sound3 = function() {
+  this.workspace.playAudio("sound3");
+}
+
+Blockly.BlockSvg.prototype.sound_sound4 = function() {
+  this.workspace.playAudio("sound4");
 }
 
 
@@ -21450,8 +21462,14 @@ Blockly.Flyout.prototype.createBlockFunc_ = function (a) {
 
       var blockType = d.type;
       switch (blockType) {
-        case "inout_tone":
+        case "controls_if":
           b.targetWorkspace_.playAudio("sound1");
+          break;
+        case "logic_compare":
+          b.targetWorkspace_.playAudio("sound2");
+          break;
+        case "grove_thumb_joystick":
+          b.targetWorkspace_.playAudio("sound3 ");
           break;
         default:
           b.targetWorkspace_.playAudio("click");
@@ -22457,22 +22475,30 @@ Blockly.init_ = function (a) {
       ],
       "delete"
     );
-
     a.loadAudio_(
       [
-        b.pathToMedia + "sound1.wav",
+        b.pathToMedia + "sound1.mp3",
       ],
       "sound1"
-    )
-
+    );
     a.loadAudio_(
-        [
-            b.pathToMedia + "click.mp3",
-            b.pathToMedia + "click.wav",
-            b.pathToMedia + "click.ogg",
-        ],
-        "loop_blinking"
-    )
+      [
+        b.pathToMedia + "sound2.mp3",
+      ],
+      "sound2"
+    );
+    a.loadAudio_(
+      [
+        b.pathToMedia + "sound3.wav",
+      ],
+      "sound3"
+    );
+    a.loadAudio_(
+      [
+        b.pathToMedia + "sound4.wav",
+      ],
+      "sound4"
+    );
 
     var d = [],
       b = function () {

@@ -248,7 +248,22 @@ function init() {
       background-color: #0C7BDC;
       color: #FFFFFF;
       font-weight: bold;
+      white-space: nowrap;
     }
+    /* td#tab_showdialog {
+      cursor: pointer;
+      padding: 5px 10px;
+      font-size: 170%;
+      border-radius: 3px;
+      border: 5px solid #ddd;
+      background-color: #0C7BDC;
+      color: #FFFFFF;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    td#tab_showdialog:hover {
+      background-color: #32CD32;
+    } */
     td.taboff:hover {
       background-color: #32CD32;
     }
@@ -436,6 +451,8 @@ function init() {
             <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_showdialog" class="taboff" onclick="showDialog()">Show Dialog</td>
             <td class="tabmax">
               <button type="button" onclick="uploadClick()">Upload</button>
               <button type="button" onclick="resetClick()">Reset</button>
@@ -471,7 +488,7 @@ function init() {
 
   <div id="state-container" class="box">
     <button id ="run-button" onclick="runGame()">Run the game</button>
-    <p id="hint-text"><b>Hint!</b>You can solve this Maze using 6 moves.</p>
+    <p id="hint-text"><b>Hint! </b>You can solve this Maze using 6 moves.</p>
   </div>
   </div>
   
@@ -526,7 +543,7 @@ function init() {
     <category name="Variables" custom="VARIABLE"></category>
     <category name="Functions" custom="PROCEDURE"></category>
     <sep></sep>
-    <category name="Input/Output">
+    <!-- <category name="Input/Output">
       <block type="inout_highlow"></block>
       <block type="inout_digital_write"></block>
       <block type="inout_digital_read"></block>
@@ -564,14 +581,14 @@ function init() {
         </value>
       </block>
       <block type="servo_read_degrees"></block>
-    </category>
+    </category> -->
     <category name="Grove Analog">
-      <block type="grove_rotary_angle"></block>
+      <!-- <block type="grove_rotary_angle"></block>
       <block type="grove_temporature_sensor"></block>
-      <block type="grove_sound_sensor"></block>
+      <block type="grove_sound_sensor"></block> -->
       <block type="grove_thumb_joystick"></block>
     </category>
-    <category name="Grove">
+    <!-- <category name="Grove">
       <block type="grove_led"></block>
       <block type="grove_button"></block>
       <block type="grove_relay"></block>
@@ -605,7 +622,7 @@ function init() {
     </category>
     <category name="Grove Motor">
       <block type="grove_motor_shield"></block>
-    </category>
+    </category> -->
     
   
   </xml>
