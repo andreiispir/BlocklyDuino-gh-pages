@@ -505,10 +505,18 @@ Blockly.Arduino.grove_motor_shield = function () {
   return b;
 };
 Blockly.Arduino.grove_thumb_joystick = function () {
-  var a = this.getFieldValue("PIN"),
-    b = "0",
-    b = "y" === this.getFieldValue("AXIS") ? _get_next_pin(a) : a;
-  return ["analogRead(" + b + ")", Blockly.Arduino.ORDER_ATOMIC];
+  // var a = this.getFieldValue("PIN"),
+  //   b = "0",
+  //   b = "y" === this.getFieldValue("AXIS") ? _get_next_pin(a) : a;
+  // return ["analogRead(" + b + ")", Blockly.Arduino.ORDER_ATOMIC];
+  var pin;
+  var axis = this.getFieldValue("AXIS");
+  if (axis === "x") {
+    pin = "A0"; // Set pin to A0 for X-axis
+  } else {
+    pin = "A1"; // Set pin to A1 for Y-axis
+  }
+  return ["analogRead(" + pin + ")", Blockly.Arduino.ORDER_ATOMIC];
 };
 function hexToR(a) {
   return parseInt(cutHex(a).substring(0, 2), 16);

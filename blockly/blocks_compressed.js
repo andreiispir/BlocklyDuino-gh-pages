@@ -729,8 +729,6 @@ Blockly.Blocks.grove_thumb_joystick = {
           64
         )
       )
-      .appendField("PIN#")
-      .appendField(new Blockly.FieldDropdown(profile["default"].analog), "PIN")
       .appendField("axis")
       .appendField(
         new Blockly.FieldDropdown([
@@ -739,7 +737,7 @@ Blockly.Blocks.grove_thumb_joystick = {
         ]),
         "AXIS"
       );
-    this.setOutput(!0, "Number");
+    this.setOutput(true, "Number");
     this.setTooltip(
       "output two analog values(200~800) representing two directions"
     );
