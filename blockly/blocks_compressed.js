@@ -716,15 +716,92 @@ Blockly.Blocks.grove_motor_shield = {
     this.setTooltip("Drive two brushed DC motors");
   },
 };
-Blockly.Blocks.grove_thumb_joystick = {
+Blockly.Blocks.grove_thumb_joystick_left = {
+  helpUrl: "http://www.seeedstudio.com/wiki/Grove_-_Thumb_Joystick",
+  init: function () {
+    this.setColour(50);
+    this.appendDummyInput()
+      .appendField("JoyStick moves left")
+      .appendField(
+        new Blockly.FieldImage("https://upload.wikimedia.org/wikipedia/commons/1/18/Left_arrow.svg", 64, 64)
+      )
+      .appendField("axis")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["x", "x"],
+          ["y", "y"],
+        ]),
+        "AXIS"
+      );
+    this.setOutput(true, "Number");
+    this.setTooltip(
+      "output two analog values(200~800) representing two directions"
+    );
+  },
+};
+Blockly.Blocks.grove_thumb_joystick_right = {
   helpUrl: "http://www.seeedstudio.com/wiki/Grove_-_Thumb_Joystick",
   init: function () {
     this.setColour(10);
     this.appendDummyInput()
-      .appendField("Thumb Joystick")
+      .appendField("JoyStick moves right")
       .appendField(
         new Blockly.FieldImage(
-          "https://statics3.seeedstudio.com/images/product/bgjoy1.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/1/12/Right_arrow.svg",
+          64,
+          64
+        )
+      )
+      .appendField("axis")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["x", "x"],
+          ["y", "y"],
+        ]),
+        "AXIS"
+      );
+    this.setOutput(true, "Number");
+    this.setTooltip(
+      "output two analog values(200~800) representing two directions"
+    );
+  },
+};
+Blockly.Blocks.grove_thumb_joystick_up = {
+  helpUrl: "http://www.seeedstudio.com/wiki/Grove_-_Thumb_Joystick",
+  init: function () {
+    this.setColour(20);
+    this.appendDummyInput()
+      .appendField("JoyStick moves right")
+      .appendField(
+        new Blockly.FieldImage(
+          "https://upload.wikimedia.org/wikipedia/commons/a/aa/Aiga_uparrow.svg",
+          64,
+          64
+        )
+      )
+      .appendField("axis")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["x", "x"],
+          ["y", "y"],
+        ]),
+        "AXIS"
+      );
+    this.setOutput(true, "Number");
+    this.setTooltip(
+      "output two analog values(200~800) representing two directions"
+    );
+  },
+};
+Blockly.Blocks.grove_thumb_joystick_down = {
+  helpUrl: "http://www.seeedstudio.com/wiki/Grove_-_Thumb_Joystick",
+  init: function () {
+    this.setColour(30);
+    this.appendDummyInput()
+      .appendField("JoyStick moves down")
+      .appendField(
+        new Blockly.FieldImage(
+          "https://upload.wikimedia.org/wikipedia/commons/8/8b/Aiga_downarrow.svg",
           64,
           64
         )
