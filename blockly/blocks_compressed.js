@@ -320,24 +320,7 @@ Blockly.Blocks.grove_led = {
   init: function () {
     this.setColour(190);
     this.appendDummyInput()
-      .appendField("LED")
-      .appendField(
-        new Blockly.FieldImage(
-          "https://statics3.seeedstudio.com/images/product/groveblue%20white.jpg",
-          64,
-          64
-        )
-      )
-      .appendField("PIN#")
-      .appendField(new Blockly.FieldDropdown(profile["default"].digital), "PIN")
-      .appendField("stat")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["HIGH", "HIGH"],
-          ["LOW", "LOW"],
-        ]),
-        "STAT"
-      );
+      .appendField("MOVE CHARACTER LEFT")
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
     this.setTooltip("green LED");
@@ -346,26 +329,15 @@ Blockly.Blocks.grove_led = {
 Blockly.Blocks.grove_button = {
   helpUrl:
     "http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Button",
-  init: function () {
-    this.setColour(190);
-    this.appendDummyInput()
-      .appendField("Button")
-      .appendField(
-        new Blockly.FieldImage(
-          "https://statics3.seeedstudio.com/images/product/bgpushb1.jpg",
-          64,
-          64
-        )
-      )
-      .appendField("PIN#")
-      .appendField(
-        new Blockly.FieldDropdown(profile["default"].digital),
-        "PIN"
-      );
-    this.setOutput(!0, "Boolean");
-    this.setTooltip("Basic digital input");
-  },
-};
+    init: function () {
+      this.setColour(190);
+      this.appendDummyInput()
+        .appendField("MOVE CHARACTER RIGHT")
+      this.setPreviousStatement(!0, null);
+      this.setNextStatement(!0, null);
+      this.setTooltip("green LED");
+    },
+  };
 Blockly.Blocks.grove_rotary_angle = {
   helpUrl:
     "http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Potentiometer",
@@ -389,28 +361,15 @@ Blockly.Blocks.grove_rotary_angle = {
 Blockly.Blocks.grove_tilt_switch = {
   helpUrl:
     "http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Tilt_switch",
-  init: function () {
-    this.setColour(190);
-    this.appendDummyInput()
-      .appendField("Tilt Switch")
-      .appendField(
-        new Blockly.FieldImage(
-          "https://statics3.seeedstudio.com/images/product/gbtlt.jpg",
-          64,
-          64
-        )
-      )
-      .appendField("PIN#")
-      .appendField(
-        new Blockly.FieldDropdown(profile["default"].digital),
-        "PIN"
-      );
-    this.setOutput(!0, "Boolean");
-    this.setTooltip(
-      "When the switch is level it is open, and when tilted, the switch closes."
-    );
-  },
-};
+    init: function () {
+      this.setColour(190);
+      this.appendDummyInput()
+        .appendField("MOVE CHARACTER DOWN")
+      this.setPreviousStatement(!0, null);
+      this.setNextStatement(!0, null);
+      this.setTooltip("green LED");
+    },
+  };
 Blockly.Blocks.grove_piezo_buzzer = {
   helpUrl:
     "http://www.seeedstudio.com/wiki/GROVE_-_Starter_Kit_V1.1b#Grove_.E2.80.93_Buzzer",
@@ -445,29 +404,10 @@ Blockly.Blocks.grove_relay = {
   init: function () {
     this.setColour(190);
     this.appendDummyInput()
-      .appendField("Relay")
-      .appendField(
-        new Blockly.FieldImage(
-          "https://statics3.seeedstudio.com/images/1030200051.jpg",
-          64,
-          64
-        )
-      )
-      .appendField("PIN#")
-      .appendField(new Blockly.FieldDropdown(profile["default"].digital), "PIN")
-      .appendField("stat")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["HIGH", "HIGH"],
-          ["LOW", "LOW"],
-        ]),
-        "STAT"
-      );
+      .appendField("MOVE CHARACTER UP")
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
-    this.setTooltip(
-      "capable of switching a much higher voltages and currents. The maximum voltage and current that can be controlled by this module upto 250V at 10 amps."
-    );
+    this.setTooltip("green LED");
   },
 };
 Blockly.Blocks.grove_temporature_sensor = {
@@ -719,21 +659,13 @@ Blockly.Blocks.grove_motor_shield = {
 Blockly.Blocks.grove_thumb_joystick_left = {
   helpUrl: "http://www.seeedstudio.com/wiki/Grove_-_Thumb_Joystick",
   init: function () {
-    this.setColour(50);
+    this.setColour(40);
     this.appendDummyInput()
       .appendField("JoyStick moves left")
       .appendField(
         new Blockly.FieldImage("https://upload.wikimedia.org/wikipedia/commons/1/18/Left_arrow.svg", 64, 64)
       )
-      .appendField("axis")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["x", "x"],
-          ["y", "y"],
-        ]),
-        "AXIS"
-      );
-    this.setOutput(true, "Number");
+    this.setOutput(!0, "Boolean");
     this.setTooltip(
       "output two analog values(200~800) representing two directions"
     );
@@ -752,15 +684,7 @@ Blockly.Blocks.grove_thumb_joystick_right = {
           64
         )
       )
-      .appendField("axis")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["x", "x"],
-          ["y", "y"],
-        ]),
-        "AXIS"
-      );
-    this.setOutput(true, "Number");
+      this.setOutput(!0, "Boolean");
     this.setTooltip(
       "output two analog values(200~800) representing two directions"
     );
@@ -771,7 +695,7 @@ Blockly.Blocks.grove_thumb_joystick_up = {
   init: function () {
     this.setColour(20);
     this.appendDummyInput()
-      .appendField("JoyStick moves right")
+      .appendField("JoyStick moves up")
       .appendField(
         new Blockly.FieldImage(
           "https://upload.wikimedia.org/wikipedia/commons/a/aa/Aiga_uparrow.svg",
@@ -779,15 +703,7 @@ Blockly.Blocks.grove_thumb_joystick_up = {
           64
         )
       )
-      .appendField("axis")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["x", "x"],
-          ["y", "y"],
-        ]),
-        "AXIS"
-      );
-    this.setOutput(true, "Number");
+      this.setOutput(!0, "Boolean");
     this.setTooltip(
       "output two analog values(200~800) representing two directions"
     );
@@ -806,15 +722,7 @@ Blockly.Blocks.grove_thumb_joystick_down = {
           64
         )
       )
-      .appendField("axis")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["x", "x"],
-          ["y", "y"],
-        ]),
-        "AXIS"
-      );
-    this.setOutput(true, "Number");
+      this.setOutput(!0, "Boolean");
     this.setTooltip(
       "output two analog values(200~800) representing two directions"
     );

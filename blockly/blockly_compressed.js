@@ -19369,6 +19369,38 @@ Blockly.BlockSvg.prototype.sound_sound4 = function() {
   this.workspace.playAudio("sound4");
 }
 
+Blockly.BlockSvg.prototype.sound_up = function() {
+  this.workspace.playAudio("up");
+}
+
+Blockly.BlockSvg.prototype.sound_down = function() {
+  this.workspace.playAudio("down");
+}
+
+Blockly.BlockSvg.prototype.sound_left = function() {
+  this.workspace.playAudio("left");
+}
+
+Blockly.BlockSvg.prototype.sound_right = function() {
+  this.workspace.playAudio("right");
+}
+
+Blockly.BlockSvg.prototype.sound_move_character_left = function() {
+  this.workspace.playAudio("move_character_left");
+}
+
+Blockly.BlockSvg.prototype.sound_move_character_right = function() {
+  this.workspace.playAudio("move_character_right");
+}
+
+Blockly.BlockSvg.prototype.sound_move_character_up = function() {
+  this.workspace.playAudio("move_character_up");
+}
+
+Blockly.BlockSvg.prototype.sound_move_character_down = function() {
+  this.workspace.playAudio("move_character_down");
+}
+
 
 
 Blockly.Msg = {};
@@ -21468,8 +21500,29 @@ Blockly.Flyout.prototype.createBlockFunc_ = function (a) {
         case "logic_compare":
           b.targetWorkspace_.playAudio("sound2");
           break;
-        case "grove_thumb_joystick":
-          b.targetWorkspace_.playAudio("sound3 ");
+        case "grove_thumb_joystick_left":
+          b.targetWorkspace_.playAudio("left");
+          break;
+        case "grove_thumb_joystick_right":
+          b.targetWorkspace_.playAudio("right");
+          break;
+        case "grove_thumb_joystick_up":
+          b.targetWorkspace_.playAudio("up");
+          break;
+        case "grove_thumb_joystick_down":
+          b.targetWorkspace_.playAudio("down");
+          break;
+        case "grove_led":
+          b.targetWorkspace_.playAudio("move_character_left");
+          break;
+        case "grove_button":
+          b.targetWorkspace_.playAudio("move_character_right");
+          break;
+        case "grove_relay":
+          b.targetWorkspace_.playAudio("move_character_up");
+          break;
+        case "grove_tilt_switch":
+          b.targetWorkspace_.playAudio("move_character_down");
           break;
         default:
           b.targetWorkspace_.playAudio("click");
@@ -22498,6 +22551,61 @@ Blockly.init_ = function (a) {
         b.pathToMedia + "sound4.wav",
       ],
       "sound4"
+    );
+    a.loadAudio_(
+      [
+        b.pathToMedia + "move_character_left.mp3",
+      ],
+      "move_character_left"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "move_character_right.mp3",
+      ],
+      "move_character_right"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "move_character_up.mp3",
+      ],
+      "move_character_up"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "move_character_down.mp3",
+      ],
+      "move_character_down"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "left.mp3",
+      ],
+      "left"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "right.mp3",
+      ],
+      "right"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "up.mp3",
+      ],
+      "up"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "down.mp3",
+      ],
+      "down"
     );
 
     var d = [],

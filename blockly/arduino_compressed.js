@@ -329,12 +329,12 @@ Blockly.Arduino.grove_led = function () {
     b = this.getFieldValue("STAT");
   Blockly.Arduino.setups_["setup_green_led_" + a] =
     "pinMode(" + a + ", OUTPUT);";
-  return "digitalWrite(" + a + "," + b + ");\n";
+  return "//move character left";
 };
 Blockly.Arduino.grove_button = function () {
   var a = this.getFieldValue("PIN");
   Blockly.Arduino.setups_["setup_button_" + a] = "pinMode(" + a + ", INPUT);";
-  return ["digitalRead(" + a + ")", Blockly.Arduino.ORDER_ATOMIC];
+  return "//move character right";
 };
 Blockly.Arduino.grove_rotary_angle = function () {
   return [
@@ -346,7 +346,7 @@ Blockly.Arduino.grove_tilt_switch = function () {
   var a = this.getFieldValue("PIN");
   Blockly.Arduino.setups_["setup_tilt_switch_" + a] =
     "pinMode(" + a + ", INPUT);";
-  return ["digitalRead(" + a + ")", Blockly.Arduino.ORDER_ATOMIC];
+    return "//move character up";
 };
 Blockly.Arduino.grove_piezo_buzzer = function () {
   var a = this.getFieldValue("PIN"),
@@ -359,7 +359,7 @@ Blockly.Arduino.grove_relay = function () {
   var a = this.getFieldValue("PIN"),
     b = this.getFieldValue("STAT");
   Blockly.Arduino.setups_["setup_relay_" + a] = "pinMode(" + a + ", OUTPUT);";
-  return "digitalWrite(" + a + "," + b + ");\n";
+  return "//move character down";;
 };
 Blockly.Arduino.grove_temporature_sensor = function () {
   var a = this.getFieldValue("PIN");
@@ -516,7 +516,35 @@ Blockly.Arduino.grove_thumb_joystick = function () {
   } else {
     pin = "A1"; // Set pin to A1 for Y-axis
   }
-  return ["analogRead(" + pin + ")", Blockly.Arduino.ORDER_ATOMIC];
+  return ["//this is a comment", Blockly.Arduino.ORDER_ATOMIC];
+};
+Blockly.Arduino.grove_thumb_joystick_left = function () {
+  // var a = this.getFieldValue("PIN"),
+  //   b = "0",
+  //   b = "y" === this.getFieldValue("AXIS") ? _get_next_pin(a) : a;
+  // return ["analogRead(" + b + ")", Blockly.Arduino.ORDER_ATOMIC];
+  return ["analogRead(A1) < 490", Blockly.Arduino.ORDER_ATOMIC];
+};
+Blockly.Arduino.grove_thumb_joystick_right = function () {
+  // var a = this.getFieldValue("PIN"),
+  //   b = "0",
+  //   b = "y" === this.getFieldValue("AXIS") ? _get_next_pin(a) : a;
+  // return ["analogRead(" + b + ")", Blockly.Arduino.ORDER_ATOMIC];
+  return ["analogRead(A1) > 510", Blockly.Arduino.ORDER_ATOMIC];
+};
+Blockly.Arduino.grove_thumb_joystick_down = function () {
+  // var a = this.getFieldValue("PIN"),
+  //   b = "0",
+  //   b = "y" === this.getFieldValue("AXIS") ? _get_next_pin(a) : a;
+  // return ["analogRead(" + b + ")", Blockly.Arduino.ORDER_ATOMIC];
+  return ["analogRead(A0) < 490", Blockly.Arduino.ORDER_ATOMIC];
+};
+Blockly.Arduino.grove_thumb_joystick_up = function () {
+  // var a = this.getFieldValue("PIN"),
+  //   b = "0",
+  //   b = "y" === this.getFieldValue("AXIS") ? _get_next_pin(a) : a;
+  // return ["analogRead(" + b + ")", Blockly.Arduino.ORDER_ATOMIC];
+  return ["analogRead(A0) > 510", Blockly.Arduino.ORDER_ATOMIC];
 };
 function hexToR(a) {
   return parseInt(cutHex(a).substring(0, 2), 16);

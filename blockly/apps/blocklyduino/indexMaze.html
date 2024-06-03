@@ -475,6 +475,7 @@ function init() {
 
   <div id="dialog">
     <div id="dialog-content">
+      <div class="text">
       <h1>Welcome to BlocklyDuino <em>Maze</em>!</h1>
       <h2>Your goal is to help yourself escape the Maze</h2>
       <h2>Do you think you can do it?</h2>
@@ -483,6 +484,7 @@ function init() {
       <p><em>Watch out the sounds! Adding different blocks results in different sounds.</em></p>
       <p><b>Press Ok/Enter to continue.</b></p>
       <button id="dialog-button" onclick="hideDialog()">Ok</button>
+    </div>
     </div>
   </div>
 
@@ -582,7 +584,7 @@ function init() {
       </block>
       <block type="servo_read_degrees"></block>
     </category> -->
-    <category name="Grove Analog">
+    <category name="JoyStick blocks">
       <!-- <block type="grove_rotary_angle"></block>
       <block type="grove_temporature_sensor"></block>
       <block type="grove_sound_sensor"></block> -->
@@ -591,18 +593,13 @@ function init() {
       <block type="grove_thumb_joystick_up"></block>
       <block type="grove_thumb_joystick_down"></block>
     </category>
-    <!-- <category name="Grove">
+    <category name="Action Blocks">
       <block type="grove_led"></block>
       <block type="grove_button"></block>
       <block type="grove_relay"></block>
       <block type="grove_tilt_switch"></block>
-      <block type="grove_piezo_buzzer"></block>
-      <block type="grove_pir_motion_sensor"></block>
-      <block type="grove_line_finder"></block>
-      <block type="grove_rgb_led"></block>
-      <block type="grove_ultrasonic_ranger"></block>
     </category>
-    <category name="Grove LCD">
+    <!--category name="Grove LCD">
       <block type="grove_serial_lcd_print">
         <value name="TEXT">
           <block type="text">
