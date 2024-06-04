@@ -5665,10 +5665,10 @@ goog.style.CONVERTIBLE_RELATIVE_CSS_UNITS_ = { em: 1, ex: 1 };
 goog.style.getFontSize = function (a) {
   var b = goog.style.getStyle_(a, "fontSize"),
     c = goog.style.getLengthUnits(b);
-  if (b && "px" == c) return parseInt(b, 10);
+  if (b && "px" == c) return parseInt(b, 10)+5;
   if (goog.userAgent.IE) {
     if (c in goog.style.ABSOLUTE_CSS_LENGTH_UNITS_)
-      return goog.style.getIePixelValue_(a, b, "left", "pixelLeft");
+      return goog.style.getIePixelValue_(a, b, "left", "pixelLeft") +5 ;
     if (
       a.parentNode &&
       a.parentNode.nodeType == goog.dom.NodeType.ELEMENT &&
@@ -5685,7 +5685,7 @@ goog.style.getFontSize = function (a) {
       "visibility:hidden;position:absolute;line-height:0;padding:0;margin:0;border:0;height:1em;",
   });
   goog.dom.appendChild(a, c);
-  b = c.offsetHeight;
+  b = c.offsetHeight + 5;
   goog.dom.removeNode(c);
   return b;
 };
