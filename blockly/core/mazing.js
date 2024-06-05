@@ -55,6 +55,10 @@ var Position = function (x, y) {
   
     this.keyPressHandler = this.mazeKeyPressHandler.bind(this);
     document.addEventListener("keydown", this.keyPressHandler, false);
+
+    // activate joystick control
+    this.joystickControlHandler = this.joystickControlHandler.bind(this);
+    window.addEventListener("DOMContentLoaded", this.joystickControlHandler);
   };
   
   Mazing.prototype.enableSpeech = function () {
@@ -100,7 +104,7 @@ var Position = function (x, y) {
     this.mazeScore.classList.remove("has-key");
     this.maze[this.heroPos].classList.remove("door");
     this.heroScore += 50;
-    this.gameOver("you finished !!!");
+    this.gameOver("Byte escaped!");
   };
   
   Mazing.prototype.tryMoveHero = function (pos) {
@@ -203,6 +207,29 @@ var Position = function (x, y) {
     this.tryMoveHero(tryPos);
   
     e.preventDefault();
+  };
+
+  // Handle Joystick movement
+  Mazing.prototype.joystickControl = function() {
+    var tryPos = new Position(this.heroPos.x, this.heroPos.y);
+    var joystickX = analogRead(A1);
+    var joystickY = analogRead(A0);
+    if (joystickX < 490) {
+        /* Move left */
+        this.mazeContainer.classList.remove("face-right");
+        tryPos.y--;
+    } else if (joystickX > 510) {
+        /* Move right */
+        this.mazeContainer.classList.add("face-right");
+        tryPos.y++;
+    } else if (joystickY < 490) {
+        /* Move up */
+        tryPos.x--;
+    } else if (joystickY > 510) {
+        /* Move down */
+        tryPos.x++;
+    }
+    this.tryMoveHero(tryPos);
   };
   
   Mazing.prototype.setChildMode = function () {

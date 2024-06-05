@@ -27,7 +27,13 @@
     };
 
     function runGame() {
-      makeMaze("maze_container", 5, 5); // Call makeMaze function with appropriate parameters
+      makeMaze("maze_container", 6, 6); // Call makeMaze function with appropriate parameters
+      hideBox(); 
+    }
+
+    function hideBox() {
+      var box = document.querySelector('.box');
+      box.style.display = 'none';
     }
 
     function showDialog() {
@@ -227,6 +233,8 @@ function init() {
 #maze {
   left: 69%;
   top: 18%;
+  width: 475px;
+  height: 473.6px;
   position: fixed;
   overflow: visible;
   background-color: #a7c53f;
@@ -238,8 +246,8 @@ function init() {
 }
 #maze div div {
   position: relative;
-  width: 3.5em;
-  height: 3.5em;
+  width: 2.6em;
+  height: 2.6em;
 }
 #maze div div::after {
   position: absolute;
@@ -251,8 +259,13 @@ function init() {
   z-index: 10;
 }
 #maze div div.door.exit::after {
+  left: 7px;
   content: "\1F6AA";
   scale: 3;
+}
+#maze div div.door.exit {
+  position: relative;
+  z-index: 100000;
 }
 #maze div div.nubbin::after {
   content: "\1F33C";
@@ -280,10 +293,10 @@ function init() {
 } */
 #maze div.hero::after {
   content: url('../../media/kiddo.png'); 
-  scale: 0.13;
+  scale: 0.10;
   position: absolute; /* Position the hero image absolutely within the maze container */
-  top: -215; /* Adjust the top and left values to position the image correctly within the maze */
-  left: -213;
+  top: -222; /* Adjust the top and left values to position the image correctly within the maze */
+  left: -222;
   display: block; /* Ensure the image displays as a block element */
 }
 #maze.face-right div.hero::after {
@@ -302,15 +315,20 @@ function init() {
 }
 #maze div div.sentinel.wall::after {
   content: "\1F40A";
+  left: 6px;
 }
 #maze div div.sentinel::after {
     scale: 2;
 }
 #maze div.sentinel.wall:nth-of-type(3n)::after {
+  left: 6px;
+  top: 6px;
   content: "\1F40D";
 }
 #maze div div.key::after {
   content: "\1F511";
+  left: 6px;
+  top: 6px;
   scale: 2;
 }
 
@@ -361,9 +379,13 @@ function init() {
   position: fixed;
   white-space: nowrap;
   text-align: left;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
 }
 #maze_score::before {
   content: "Score: ";
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
   top: 60%;
   left: 50%;
 }
@@ -373,15 +395,19 @@ function init() {
 #maze_message {
   flex: 3;
   top: 80%;
-  left: 88%;
+  left: 86%;
   position:  fixed;
   text-align: right;
   scale: 1.5;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
 }
 
 
     .box {
       /* background-color: #FFFFFF; */
+      background-image: url("../../media/maze_op.png");
+      background-size: cover;
       width: 450px;
       height: 450px;
       border: 5px solid #0C7BDC;
@@ -391,6 +417,7 @@ function init() {
       top: 16.2%;
       position: fixed;
       overflow: visible;
+      z-index: 0;
     }
     html, body {
       height: 100%;
@@ -532,6 +559,7 @@ function init() {
       bottom: -120px;
       left: 48%;
       transform: translateX(-50%);
+      background-color: red;
     }
 
     #run-button:hover {
@@ -544,7 +572,7 @@ function init() {
       color: #333;
       font-size: 20px;
       position: absolute;
-      bottom: -130px;
+      bottom: -170px;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
@@ -646,13 +674,13 @@ function init() {
             <td class="tabmin">&nbsp;</td>
             <td id="tab_showdialog" class="taboff" onclick="showDialog()">Show Dialog</td>
             <td class="tabmax">
-              <button type="button" onclick="uploadClick()">Upload</button>
+              <button onclick="discard()">Discard blocks</button>
+              <button type="button" onclick="runGame()" class="run-button">Run the game</button>
+              <button type="button" onclick="uploadClick()">Upload to Arduino</button>
               <button type="button" onclick="resetClick()">Reset</button>
-              <button onclick="discard()">Discard</button>
-              <button onclick="saveCode()">Save Arduino Code</button>
-              <button type="button" onclick="runGame()">Run the game</button>
-              <button onclick="save()">Save XML</button>
-              <button id="fakeload">Load XML</button>
+              <!-- <button onclick="saveCode()">Save Arduino Code</button> -->
+              <!-- <button onclick="save()">Save XML</button>
+              <button id="fakeload">Load XML</button> -->
               
               <input type="file" id="load" style="display: none;"/>
               <!--button class="launch" onclick="runJS()">Run Program</button-->
@@ -674,6 +702,7 @@ function init() {
         <h2>My name is Byte, and together we will learn how to code our way out of this Maze!</h2>
         <h2>Do you think you can do it?</h2>
         <p>Try to use JoyStick blocks, Action blocks and an if-do block to code the JoyStick. Think what should happen if you move the JoyStick in a specific direction. When you think you are done, press "Run the game", and help me escape!</p>
+        <p>Avoid the enemies and collect the treasures in your way to escape!</p>
         <p><em>Watch out for the sounds! Adding different blocks results in different sounds.</em></p>
         <p><b>Press Ok/Enter to continue.</b></p>
         <button id="dialog-button" onclick="hideDialog()">Ok</button>
@@ -682,8 +711,10 @@ function init() {
   </div>
 
   <div class="box">
-    <button id="run-button" onclick="runGame()">Run the game</button>
-    <!-- <p id="hint-text"><b>Hint! </b>You can solve this Maze using 6 moves.</p> -->
+    <!-- <button id="run-button" onclick="runGame()">Escape the maze</button> -->
+    <p id="hint-text">Use the blocks to program the JoyStick.<br>
+    <b>Hint! </b>What do you want to happen <b>if</b> you <b>move</b> the JoyStick in a specific direction?
+    </p>
   </div>
   
   <div id="content_blocks" class="content"></div>
