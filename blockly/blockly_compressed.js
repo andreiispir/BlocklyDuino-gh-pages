@@ -5714,7 +5714,7 @@ goog.style.getScrollbarWidth = function (a) {
   var b = goog.dom.createElement(goog.dom.TagName.DIV);
   a && (b.className = a);
   b.style.cssText =
-    "overflow:auto;position:absolute;top:0;width:100px;height:100px";
+    "overflow:auto;position:fixed;top:0;width:100px;height:100px";
   a = goog.dom.createElement(goog.dom.TagName.DIV);
   goog.style.setSize(a, "200px", "200px");
   b.appendChild(a);
@@ -16579,7 +16579,7 @@ Blockly.Trashcan.prototype.WIDTH_ = 47;
 Blockly.Trashcan.prototype.BODY_HEIGHT_ = 45;
 Blockly.Trashcan.prototype.LID_HEIGHT_ = 15;
 Blockly.Trashcan.prototype.MARGIN_BOTTOM_ = 30;
-Blockly.Trashcan.prototype.MARGIN_SIDE_ = 1460;
+Blockly.Trashcan.prototype.MARGIN_SIDE_ = 1450;
 Blockly.Trashcan.prototype.MARGIN_HOTSPOT_ = 25;
 Blockly.Trashcan.prototype.isOpen = !1;
 Blockly.Trashcan.prototype.svgGroup_ = null;
@@ -21952,13 +21952,16 @@ Blockly.Css.CONTENT = [
   "}",
   ".blocklyScrollbarBackground {",
   "opacity: 0;",
+  "position: fixed;",
   "}",
   ".blocklyScrollbarKnob {",
   "  fill: #ccc;",
+  "  position: fixed;",
   "}",
   ".blocklyScrollbarBackground:hover+.blocklyScrollbarKnob,",
   ".blocklyScrollbarKnob:hover {",
   "  fill: #0C7BDC;",
+  "  position: fixed;",
   "}",
   ".blocklyFlyout .blocklyScrollbarKnob {",
   "  fill: #bbb;",
