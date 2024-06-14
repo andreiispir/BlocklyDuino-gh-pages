@@ -54,19 +54,12 @@ Blockly.Blocks.base_map = {
 Blockly.Blocks.inout_buildin_led = {
   helpUrl: "http://arduino.cc/en/Reference/DigitalWrite",
   init: function () {
-    this.setColour(190);
+    this.setColour(230);
     this.appendDummyInput()
-      .appendField("Build-in LED Stat")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["HIGH", "HIGH"],
-          ["LOW", "LOW"],
-        ]),
-        "STAT"
-      );
+      .appendField("Play Song 3")
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
-    this.setTooltip("light or off the build-in LED");
+    this.setTooltip("green LED");
   },
 };
 Blockly.Blocks.inout_digital_write = {
@@ -74,19 +67,10 @@ Blockly.Blocks.inout_digital_write = {
   init: function () {
     this.setColour(230);
     this.appendDummyInput()
-      .appendField("DigitalWrite PIN#")
-      .appendField(new Blockly.FieldDropdown(profile["default"].digital), "PIN")
-      .appendField("Stat")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["HIGH", "HIGH"],
-          ["LOW", "LOW"],
-        ]),
-        "STAT"
-      );
+      .appendField("Play Song 1")
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
-    this.setTooltip("Write digital value to a specific Port");
+    this.setTooltip("green LED");
   },
 };
 Blockly.Blocks.inout_digital_read = {
@@ -157,15 +141,10 @@ Blockly.Blocks.inout_notone = {
   init: function () {
     this.setColour(230);
     this.appendDummyInput()
-      .appendField("No tone PIN#")
-      .appendField(
-        new Blockly.FieldDropdown(profile["default"].digital),
-        "PIN"
-      );
-    this.setInputsInline(!0);
+      .appendField("Play Song 2")
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
-    this.setTooltip("Stop generating a tone on a pin");
+    this.setTooltip("green LED");
   },
 };
 Blockly.Blocks.inout_highlow = {
@@ -184,27 +163,11 @@ Blockly.Blocks.inout_highlow = {
   },
 };
 Blockly.Blocks.servo_move = {
-  helpUrl: "http://www.arduino.cc/playground/ComponentLib/servo",
   init: function () {
     this.setColour(190);
     this.appendDummyInput()
-      .appendField("Servo")
-      .appendField(
-        new Blockly.FieldImage(
-          "https://statics3.seeedstudio.com/images/product/EMAX%20Servo.jpg",
-          64,
-          64
-        )
-      )
-      .appendField("PIN#")
-      .appendField(
-        new Blockly.FieldDropdown(profile["default"].digital),
-        "PIN"
-      );
+      .appendField("Play song 1")
     this.appendValueInput("DEGREE", "Number")
-      .setCheck("Number")
-      .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField("Degree (0~180)");
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
     this.setTooltip("move between 0~180 degree");
@@ -371,32 +334,11 @@ Blockly.Blocks.grove_tilt_switch = {
     },
   };
 Blockly.Blocks.grove_piezo_buzzer = {
-  helpUrl:
-    "http://www.seeedstudio.com/wiki/GROVE_-_Starter_Kit_V1.1b#Grove_.E2.80.93_Buzzer",
   init: function () {
-    this.setColour(190);
+    this.setColour(230);
     this.appendDummyInput()
-      .appendField("Piezo Buzzer")
-      .appendField(
-        new Blockly.FieldImage(
-          "https://statics3.seeedstudio.com/images/107020000%201.jpg",
-          64,
-          64
-        )
-      )
-      .appendField("PIN#")
-      .appendField(new Blockly.FieldDropdown(profile["default"].digital), "PIN")
-      .appendField("stat")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["HIGH", "HIGH"],
-          ["LOW", "LOW"],
-        ]),
-        "STAT"
-      );
-    this.setPreviousStatement(!0, null);
-    this.setNextStatement(!0, null);
-    this.setTooltip("Emit a tone when the output is high");
+      .appendField("Blue button is pressed")
+    this.setOutput(!0, "Boolean");
   },
 };
 Blockly.Blocks.grove_relay = {
@@ -554,51 +496,20 @@ Blockly.Blocks.grove_sound_sensor = {
   },
 };
 Blockly.Blocks.grove_pir_motion_sensor = {
-  helpUrl: "http://www.seeedstudio.com/wiki/Grove_-_PIR_Motion_Sensor",
   init: function () {
-    this.setColour(190);
+    this.setColour(5);
     this.appendDummyInput()
-      .appendField("PIR Motion Sensor")
-      .appendField(
-        new Blockly.FieldImage(
-          "https://statics3.seeedstudio.com/images/product/Grove%20-%20PIR%20Motion%20Sensor.jpg",
-          64,
-          64
-        )
-      )
-      .appendField("PIN#")
-      .appendField(
-        new Blockly.FieldDropdown(profile["default"].digital),
-        "PIN"
-      );
-    this.setOutput(!0, "Number");
-    this.setTooltip(
-      "When anyone moves in it's detecting range, the sensor outputs HIGH."
-    );
+      .appendField("Red button is pressed")
+    this.setOutput(!0, "Boolean");
   },
 };
 Blockly.Blocks.grove_line_finder = {
   helpUrl: "http://www.seeedstudio.com/wiki/Grove_-_Line_Finder",
   init: function () {
-    this.setColour(190);
+    this.setColour(600);
     this.appendDummyInput()
-      .appendField("Line Finder")
-      .appendField(
-        new Blockly.FieldImage(
-          "https://statics3.seeedstudio.com/seeed/img/2016-09/WcjECS8Y4O8dSFI1TxymsAtg.jpg",
-          64,
-          64
-        )
-      )
-      .appendField("PIN#")
-      .appendField(
-        new Blockly.FieldDropdown(profile["default"].digital),
-        "PIN"
-      );
+      .appendField("White button is pressed")
     this.setOutput(!0, "Boolean");
-    this.setTooltip(
-      "Output digital signal so the robot can reliably follow a black line on a white background"
-    );
   },
 };
 Blockly.Blocks.grove_ultrasonic_ranger = {

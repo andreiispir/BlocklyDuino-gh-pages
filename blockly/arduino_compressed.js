@@ -190,17 +190,7 @@ Blockly.Arduino.inout_highlow = function () {
   ];
 };
 Blockly.Arduino.servo_move = function () {
-  var a = this.getFieldValue("PIN"),
-    b = Blockly.Arduino.valueToCode(
-      this,
-      "DEGREE",
-      Blockly.Arduino.ORDER_ATOMIC
-    );
-  Blockly.Arduino.definitions_.define_servo = "#include <Servo.h>\n";
-  Blockly.Arduino.definitions_["var_servo" + a] = "Servo servo_" + a + ";\n";
-  Blockly.Arduino.setups_["setup_servo_" + a] =
-    "servo_" + a + ".attach(" + a + ");\n";
-  return "servo_" + a + ".write(" + b + ");\n";
+  return "hey";
 };
 Blockly.Arduino.servo_read_degrees = function () {
   var a = this.getFieldValue("PIN");
