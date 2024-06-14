@@ -176,9 +176,7 @@ Blockly.Arduino.inout_tone = function () {
   return "tone(" + a + ", " + b + ");\n";
 };
 Blockly.Arduino.inout_notone = function () {
-  var a = this.getFieldValue("PIN");
-  Blockly.Arduino.setups_["setup_output" + a] = "pinMode(" + a + ", OUTPUT);";
-  return "noTone(" + a + ");\n";
+  return "    for (int thisNote=0; thisNote <19; thisNote++) { \n       int noteDuration = 1000 / counterDurations [thisNote]; \n       tone(8, starwarsMelody [thisNote], noteDuration); \n       int pauseBetweenNotes = noteDuration * 1.30; \n       delay(pauseBetweenNotes); \n       noTone(8);\n }";
 };
 Blockly.Arduino.inout_highlow = function () {
   return [
