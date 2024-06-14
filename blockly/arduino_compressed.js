@@ -151,7 +151,7 @@ Blockly.Arduino.inout_buildin_led = function () {
   return "digitalWrite(13, " + a + ");\n";
 };
 Blockly.Arduino.inout_digital_write = function () {
-  return "for (int thisNote=0; thisNote <20; thisNote++) { \n       int noteDuration = 1000 / noteDurations [thisNote]; \n      tone(8, halloweenMelody [thisNote], noteDuration); \n       int pauseBetweenNotes = noteDuration * 1.30; \n       delay(pauseBetweenNotes); \n      noTone(8); \n     } }";
+  return "for (int thisNote=0; thisNote <20; thisNote++) { \n       int noteDuration = 1000 / noteDurations [thisNote]; \n      tone(8, halloweenMelody [thisNote], noteDuration); \n       int pauseBetweenNotes = noteDuration * 1.30; \n       delay(pauseBetweenNotes); \n      noTone(8); \n      }";
 };
 Blockly.Arduino.inout_digital_read = function () {
   var a = this.getFieldValue("PIN");
