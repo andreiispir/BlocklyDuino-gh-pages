@@ -206,7 +206,7 @@ function uploadCode(code, callback) {
 
     // You REALLY want async = true.
     // Otherwise, it'll block ALL execution waiting for server response.
-    var async = true;
+    var async = false
 
     var request = new XMLHttpRequest();
     

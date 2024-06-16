@@ -1,7 +1,7 @@
 <html manifest=node.manifest>
 <head>
   <meta charset="utf-8">
-  <title>BlocklyDuino</title>
+  <title>ArduRookies Maze</title>
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
   <script type="text/javascript" src="../../blocks_compressed.js"></script>
   <script type="text/javascript" src="../../arduino_compressed.js"></script>
@@ -28,7 +28,7 @@
 
     function runGame() {
       makeMaze("maze_container", 6, 6); // Call makeMaze function with appropriate parameters
-      hideBox(); 
+      hideBox();
     }
 
     function hideBox() {
@@ -677,7 +677,7 @@ function init() {
               <button onclick="discard()">Discard blocks</button>
               <button type="button" onclick="runGame()" class="run-button">Run the game</button>
               <button type="button" onclick="uploadClick()">Upload to Arduino</button>
-              <button type="button" onclick="resetClick()">Reset</button>
+              <button type="button" style="margin-right:25px;" onclick="resetClick()">Reset</button>
               <!-- <button onclick="saveCode()">Save Arduino Code</button> -->
               <!-- <button onclick="save()">Save XML</button>
               <button id="fakeload">Load XML</button> -->
@@ -701,8 +701,9 @@ function init() {
         <h1>Welcome to ArduRookies <em>Maze</em>!</h1>
         <h2>My name is Byte, and together we will learn how to code our way out of this Maze!</h2>
         <h2>Do you think you can do it?</h2>
-        <p>Try to use JoyStick blocks, Action blocks and an if-do block to code the JoyStick. Think what should happen if you move the JoyStick in a specific direction. When you think you are done, press "Run the game", and help me escape!</p>
+        <p>Try to use JoyStick blocks, Action blocks and an if-do block to code the JoyStick. Think what should happen if you move the JoyStick in a specific direction. When you think you are done, <b>press "Upload to Arduino", run the game</b> and help me escape!</p>
         <p>Avoid the enemies and collect the treasures in your way to escape!</p>
+
         <p><em>Watch out for the sounds! Adding different blocks results in different sounds.</em></p>
         <p><b>Press Ok/Enter to continue.</b></p>
         <button id="dialog-button" onclick="hideDialog()">Ok</button>
@@ -722,9 +723,10 @@ function init() {
   <textarea id="content_xml" class="content" wrap="off"></textarea>
 
   <xml id="toolbox" style="display: none">
-    <category name="Logic">
+    <category name="If Do block">
       <block type="controls_if"></block>
-      <block type="logic_compare"></block>
+    </category>
+      <!-- <block type="logic_compare"></block>
       <block type="logic_operation"></block>
       <block type="logic_negate"></block>
       <block type="logic_null"></block>
@@ -766,7 +768,7 @@ function init() {
       <block type="text"></block>
     </category>
     <category name="Variables" custom="VARIABLE"></category>
-    <category name="Functions" custom="PROCEDURE"></category>
+    <category name="Functions" custom="PROCEDURE"></category> -->
     <sep></sep>
     <!-- <category name="Input/Output">
       <block type="inout_highlow"></block>

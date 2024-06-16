@@ -78,7 +78,7 @@ Blockly.Arduino.init = function (a) {
 Blockly.Arduino.finish = function (a) {
   a = "  " + a.replace(/\n/g, "\n  ");
   a = a.replace(/\n\s+$/, "\n");
-  a = "void loop() \n{\n" + a + "\n}";
+  a = "void loop() \n{\n  " + a + "\n  delay(150);\n}";
   var b = [],
     c = [],
     d;
@@ -101,6 +101,7 @@ Blockly.Arduino.finish = function (a) {
       .replace(/\n*$/, "\n\n\n") + a
   );
 };
+
 Blockly.Arduino.scrubNakedValue = function (a) {
   return a + ";\n";
 };
@@ -314,14 +315,14 @@ Blockly.Arduino.grove = {};
 Blockly.Arduino.grove_led = function () {
   var a = this.getFieldValue("PIN"),
     b = this.getFieldValue("STAT");
-  Blockly.Arduino.setups_["setup_green_led_" + a] =
-    "pinMode(" + a + ", OUTPUT);";
-  return "//move character left";
+  // Blockly.Arduino.setups_["setup_green_led_" + a] =
+  //   "pinMode(" + a + ", OUTPUT);";
+  return 'Serial.print("L");';
 };
 Blockly.Arduino.grove_button = function () {
   var a = this.getFieldValue("PIN");
-  Blockly.Arduino.setups_["setup_button_" + a] = "pinMode(" + a + ", INPUT);";
-  return "//move character right";
+  Blockly.Arduino.setups_["setup_button_" + a] = "pinMode(A0, INPUT);";
+  return 'Serial.print("R");';
 };
 Blockly.Arduino.grove_rotary_angle = function () {
   return [
@@ -332,8 +333,8 @@ Blockly.Arduino.grove_rotary_angle = function () {
 Blockly.Arduino.grove_tilt_switch = function () {
   var a = this.getFieldValue("PIN");
   Blockly.Arduino.setups_["setup_tilt_switch_" + a] =
-    "pinMode(" + a + ", INPUT);";
-    return "//move character up";
+    "pinMode(A1, INPUT);";
+    return 'Serial.print("D");';
 };
 Blockly.Arduino.grove_piezo_buzzer = function () {
   return ["digitalRead(halloween) == 1", Blockly.Arduino.ORDER_ATOMIC];
@@ -341,8 +342,8 @@ Blockly.Arduino.grove_piezo_buzzer = function () {
 Blockly.Arduino.grove_relay = function () {
   var a = this.getFieldValue("PIN"),
     b = this.getFieldValue("STAT");
-  Blockly.Arduino.setups_["setup_relay_" + a] = "pinMode(" + a + ", OUTPUT);";
-  return "//move character down";;
+  //Blockly.Arduino.setups_["setup_relay_" + a] = "pinMode(" + a + ", OUTPUT);";
+  return 'Serial.print("U");';
 };
 Blockly.Arduino.grove_temporature_sensor = function () {
   var a = this.getFieldValue("PIN");
@@ -669,6 +670,7 @@ Blockly.Arduino.grove_bluetooth_slave = function () {
 };
 Blockly.Arduino.logic = {};
 Blockly.Arduino.controls_if = function () {
+  Blockly.Arduino.setups_["setup_controls_if_"] = "Serial.begin(9600);";
   for (
     var a = 0,
       b =
