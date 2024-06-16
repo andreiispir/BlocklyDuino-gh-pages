@@ -67,7 +67,7 @@ Blockly.Blocks.inout_digital_write = {
   init: function () {
     this.setColour(230);
     this.appendDummyInput()
-      .appendField("Play Song 1")
+      .appendField("Play Scary Song")
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
     this.setTooltip("green LED");
