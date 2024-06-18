@@ -9,7 +9,7 @@ Welcome to our web-based educational block-based programming environment for Ard
 
 ### Arduino Setup
 * Before you start coding keep in mind the arduino should be setup as following:
-*   ArduRookies Maze :
+*   ArduRookies Maze : Respect the following scheme to connect the Joystick to the Arduino.
 *   ArduRookies Music: Make sure that the Blue button is connected to digital pin 7, Red Button to digital pin 8 and White button to digital pin 9. The piezo buzzer should have it's positive pin connected to digital pin 4. In the end your setups should look like this:
 ![Screenshot 2024-06-18 184407](https://github.com/andreiispir/BlocklyDuino-gh-pages/assets/147340167/ec4f813b-d27c-44ab-bb3e-efd0507aeaf5)
 
