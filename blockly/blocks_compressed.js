@@ -56,7 +56,7 @@ Blockly.Blocks.inout_buildin_led = {
   init: function () {
     this.setColour(230);
     this.appendDummyInput()
-      .appendField("Play Twinkle Twinkle Little Star")
+      .appendField("Play Happy Birthday")
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
     this.setTooltip("green LED");

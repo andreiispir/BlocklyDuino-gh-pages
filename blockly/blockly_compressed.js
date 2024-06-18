@@ -19400,8 +19400,29 @@ Blockly.BlockSvg.prototype.sound_move_character_up = function() {
 Blockly.BlockSvg.prototype.sound_move_character_down = function() {
   this.workspace.playAudio("move_character_down");
 }
+Blockly.BlockSvg.prototype.grove_line_finder = function() {
+  this.workspace.playAudio("white");
+}
 
+Blockly.BlockSvg.prototype.grove_pir_motion_sensor = function() {
+  this.workspace.playAudio("red");
+}
 
+Blockly.BlockSvg.prototype.grove_piezo_buzzer = function() {
+  this.workspace.playAudio("blue");
+}
+
+Blockly.BlockSvg.prototype.inout_digital_write = function() {
+  this.workspace.playAudio("scarysong");
+}
+
+Blockly.BlockSvg.prototype.inout_notone = function() {
+  this.workspace.playAudio("starwars");
+}
+
+Blockly.BlockSvg.prototype.inout_buildin_led = function() {
+  this.workspace.playAudio("happybirthday");
+}
 
 Blockly.Msg = {};
 goog.getMsgOrig = goog.getMsg;
@@ -21524,6 +21545,24 @@ Blockly.Flyout.prototype.createBlockFunc_ = function (a) {
         case "grove_tilt_switch":
           b.targetWorkspace_.playAudio("move_character_down");
           break;
+        case "grove_line_finder":
+          b.targetWorkspace_.playAudio("white");
+          break;
+        case "grove_pir_motion_sensor":
+          b.targetWorkspace_.playAudio("red");
+          break;
+        case "grove_piezo_buzzer":
+          b.targetWorkspace_.playAudio("blue");
+          break;
+        case "inout_digital_write":
+            b.targetWorkspace_.playAudio("scarysong");
+            break;
+        case "inout_notone":
+            b.targetWorkspace_.playAudio("starwars");
+            break;
+        case "inout_buildin_led":
+            b.targetWorkspace_.playAudio("happybirthday");
+            break;
         default:
           b.targetWorkspace_.playAudio("click");
       }
@@ -22611,6 +22650,46 @@ Blockly.init_ = function (a) {
       "down"
     );
 
+    a.loadAudio_(
+      [
+        b.pathToMedia + "whitebutton.mp3",
+      ],
+      "white"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "bluebutton.mp3",
+      ],
+      "blue"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "redbutton.mp3",
+      ],
+      "red"
+    );
+    a.loadAudio_(
+      [
+        b.pathToMedia + "scarysong.mp3",
+      ],
+      "scarysong"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "starwars.mp3",
+      ],
+      "starwars"
+    );
+
+    a.loadAudio_(
+      [
+        b.pathToMedia + "happybirthday.mp3",
+      ],
+      "happybirthday"
+    );
     var d = [],
       b = function () {
         for (; d.length; ) Blockly.unbindEvent_(d.pop());

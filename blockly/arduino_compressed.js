@@ -93,9 +93,9 @@ Blockly.Arduino.finish = function (a) {
       b.join("\n") +
       "\n\n #define NOTE_B0  31 \n #define NOTE_C1  33 \n #define NOTE_CS1 35 \n #define NOTE_D1  37 \n #define NOTE_DS1 39 \n #define NOTE_E1  41 \n #define NOTE_F1  44 \n #define NOTE_FS1 46 \n #define NOTE_G1  49 \n #define NOTE_GS1 52 \n #define NOTE_A1  55 \n #define NOTE_AS1 58 \n #define NOTE_B1  62 \n #define NOTE_C2  65 \n #define NOTE_CS2 69 \n #define NOTE_D2  73 \n #define NOTE_DS2 78 \n #define NOTE_E2  82 \n #define NOTE_F2  87 \n #define NOTE_FS2 93 \n #define NOTE_G2  98 \n #define NOTE_GS2 104 \n #define NOTE_A2  110 \n #define NOTE_AS2 117 \n #define NOTE_B2  123 \n #define NOTE_C3  131 \n #define NOTE_CS3 139 \n #define NOTE_D3  147 \n #define NOTE_DS3 156 \n #define NOTE_E3  165 \n #define NOTE_F3  175 \n #define NOTE_FS3 185 \n #define NOTE_G3  196 \n #define NOTE_GS3 208 \n #define NOTE_A3  220 \n #define NOTE_AS3 233 \n #define NOTE_B3  247 \n #define NOTE_C4  262 \n #define NOTE_CS4 277 \n #define NOTE_D4  294 \n #define NOTE_DS4 311 \n #define NOTE_E4  330 \n #define NOTE_F4  349 \n #define NOTE_FS4 370 \n #define NOTE_G4  392 \n #define NOTE_GS4 415 \n #define NOTE_A4  440 \n #define NOTE_AS4 466 \n #define NOTE_B4  494 \n #define NOTE_C5  523 \n #define NOTE_CS5 554 \n #define NOTE_D5  587 \n #define NOTE_DS5 622 \n #define NOTE_E5  659 \n #define NOTE_F5  698 \n #define NOTE_FS5 740 \n #define NOTE_G5  784 \n #define NOTE_GS5 831 \n #define NOTE_A5  880 \n #define NOTE_AS5 932 \n #define NOTE_B5  988 \n #define NOTE_C6  1047 \n #define NOTE_CS6 1109 \n #define NOTE_D6  1175 \n #define NOTE_DS6 1245 \n #define NOTE_E6  1319 \n #define NOTE_F6  1397 \n #define NOTE_FS6 1480 \n #define NOTE_G6  1568 \n #define NOTE_GS6 1661 \n #define NOTE_A6  1760 \n #define NOTE_AS6 1865 \n #define NOTE_B6  1976 \n #define NOTE_C7  2093 \n #define NOTE_CS7 2217 \n #define NOTE_D7  2349 \n #define NOTE_DS7 2489 \n #define NOTE_E7  2637 \n #define NOTE_F7  2794 \n #define NOTE_FS7 2960 \n #define NOTE_G7  3136 \n #define NOTE_GS7 3322 \n #define NOTE_A7  3520 \n #define NOTE_AS7 3729 \n #define NOTE_B7  3951 \n #define NOTE_C8  4186 \n #define NOTE_CS8 4435 \n #define NOTE_D8  4699 \n #define NOTE_DS8 4978 \n" +
       c.join("\n") +
-      "int twinkleMelody[] = { \n   NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4, NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_G4, NOTE_F4, NOTE_C4, NOTE_C4, NOTE_C5, NOTE_A4, NOTE_F4, NOTE_E4, NOTE_D4, NOTE_AS4, NOTE_AS4, NOTE_A4, NOTE_F4, NOTE_G4, NOTE_F4}; \n int halloweenMelody[] = { \n   NOTE_CS5, NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_D5, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_D5, NOTE_FS4 }; \n int starwarsMelody[] = { \n   NOTE_G3, NOTE_G3, NOTE_G3, NOTE_D4, NOTE_G4, NOTE_E4, NOTE_D4, NOTE_C4, NOTE_C5, NOTE_G4, NOTE_E4, NOTE_D4, NOTE_C4, NOTE_C5, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_F4, NOTE_D4 }; \n int halloween = 7; \n int starwars = 12; \n int twinkle = 9; \n int noteDurations[] = {6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 }; \n int counterDurations[] = {6, 6, 6, 1, 1, 6, 6, 6, 1, 2, 6, 6, 6, 1, 2, 6, 6, 6, 1}; \n int durations[] = {4, 8, 4, 4, 4, 2, 4, 8, 4, 4, 4, 2, 4, 8, 4, 4, 4, 4, 4, 4, 8, 4, 4, 4, 2}; \n void setup() \n{\n  " +
+      "int twinkleMelody[] = { \n   NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4, NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_G4, NOTE_F4, NOTE_C4, NOTE_C4, NOTE_C5, NOTE_A4, NOTE_F4, NOTE_E4, NOTE_D4, NOTE_AS4, NOTE_AS4, NOTE_A4, NOTE_F4, NOTE_G4, NOTE_F4}; \n int halloweenMelody[] = { \n   NOTE_CS5, NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_D5, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_FS4, NOTE_CS5, NOTE_FS4, NOTE_D5, NOTE_FS4 }; \n int starwarsMelody[] = { \n   NOTE_G3, NOTE_G3, NOTE_G3, NOTE_D4, NOTE_G4, NOTE_E4, NOTE_D4, NOTE_C4, NOTE_C5, NOTE_G4, NOTE_E4, NOTE_D4, NOTE_C4, NOTE_C5, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_F4, NOTE_D4 }; \n int blue = 7; \n int red = 8; \n int white = 9; \n int noteDurations[] = {6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 }; \n int counterDurations[] = {6, 6, 6, 1, 1, 6, 6, 6, 1, 2, 6, 6, 6, 1, 2, 6, 6, 6, 1}; \n int durations[] = {4, 8, 4, 4, 4, 2, 4, 8, 4, 4, 4, 2, 4, 8, 4, 4, 4, 4, 4, 4, 8, 4, 4, 4, 2}; \n void setup() \n{\n  " +
       e.join("\n  ") +
-      "\n pinMode(twinkle, OUTPUT); \n pinMode(halloween, INPUT); \n pinMode(starwars, INPUT); \n}\n\n"
+      "\n pinMode(white, INPUT); \n pinMode(blue, INPUT); \n pinMode(red, INPUT); \n}\n\n"
     )
       .replace(/\n\n+/g, "\n\n")
       .replace(/\n*$/, "\n\n\n") + a
@@ -147,10 +147,10 @@ Blockly.Arduino.base_map = function () {
   return ["map(" + a + ", 0, 1024, 0, " + b + ")", Blockly.Arduino.ORDER_NONE];
 };
 Blockly.Arduino.inout_buildin_led = function () {
-  return "for (int thisNote=0; thisNote <20; thisNote++) { \n       int noteDuration = 1000 / durations [thisNote]; \n      tone(8, twinkleMelody [thisNote], noteDuration); \n       int pauseBetweenNotes = noteDuration * 1.30; \n       delay(pauseBetweenNotes); \n      noTone(8); \n      }";
+  return "for (int thisNote=0; thisNote <20; thisNote++) { \n       int noteDuration = 1000 / durations [thisNote]; \n      tone(4, twinkleMelody [thisNote], noteDuration); \n       int pauseBetweenNotes = noteDuration * 1.30; \n       delay(pauseBetweenNotes); \n      noTone(4); \n      }";
 };
 Blockly.Arduino.inout_digital_write = function () {
-  return "for (int thisNote=0; thisNote <20; thisNote++) { \n       int noteDuration = 1000 / noteDurations [thisNote]; \n      tone(8, halloweenMelody [thisNote], noteDuration); \n       int pauseBetweenNotes = noteDuration * 1.30; \n       delay(pauseBetweenNotes); \n      noTone(8); \n      }";
+  return "for (int thisNote=0; thisNote <20; thisNote++) { \n       int noteDuration = 1000 / noteDurations [thisNote]; \n      tone(4, halloweenMelody [thisNote], noteDuration); \n       int pauseBetweenNotes = noteDuration * 1.30; \n       delay(pauseBetweenNotes); \n      noTone(4); \n      }";
 };
 Blockly.Arduino.inout_digital_read = function () {
   var a = this.getFieldValue("PIN");
@@ -175,7 +175,7 @@ Blockly.Arduino.inout_tone = function () {
   return "tone(" + a + ", " + b + ");\n";
 };
 Blockly.Arduino.inout_notone = function () {
-  return "    for (int thisNote=0; thisNote <19; thisNote++) { \n       int noteDuration = 1000 / counterDurations [thisNote]; \n       tone(8, starwarsMelody [thisNote], noteDuration); \n       int pauseBetweenNotes = noteDuration * 1.30; \n       delay(pauseBetweenNotes); \n       noTone(8);\n }";
+  return "    for (int thisNote=0; thisNote <19; thisNote++) { \n       int noteDuration = 1000 / counterDurations [thisNote]; \n       tone(4, starwarsMelody [thisNote], noteDuration); \n       int pauseBetweenNotes = noteDuration * 1.30; \n       delay(pauseBetweenNotes); \n       noTone(4);\n }";
 };
 Blockly.Arduino.inout_highlow = function () {
   return [
@@ -333,7 +333,7 @@ Blockly.Arduino.grove_tilt_switch = function () {
     return 'Serial.print("D");';
 };
 Blockly.Arduino.grove_piezo_buzzer = function () {
-  return ["digitalRead(halloween) == 1", Blockly.Arduino.ORDER_ATOMIC];
+  return ["digitalRead(blue) == 1", Blockly.Arduino.ORDER_ATOMIC];
 };
 Blockly.Arduino.grove_relay = function () {
   var a = this.getFieldValue("PIN"),
@@ -435,10 +435,10 @@ Blockly.Arduino.grove_sound_sensor = function () {
   ];
 };
 Blockly.Arduino.grove_pir_motion_sensor = function () {
-  return ["digitalRead(starwars) == 1", Blockly.Arduino.ORDER_ATOMIC];
+  return ["digitalRead(red) == 1", Blockly.Arduino.ORDER_ATOMIC];
 };
 Blockly.Arduino.grove_line_finder = function () {
-  return ["digitalRead(twinkle) == 1", Blockly.Arduino.ORDER_ATOMIC];
+  return ["digitalRead(white) == 1", Blockly.Arduino.ORDER_ATOMIC];
 };
 Blockly.Arduino.grove_ultrasonic_ranger = function () {
   var a = this.getFieldValue("PIN"),
