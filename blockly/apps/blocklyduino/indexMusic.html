@@ -455,13 +455,15 @@ function init() {
             <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_showdialog" class="taboff" onclick="showDialog()">Show Dialog</td>
             <td class="tabmax">
-              <button type="button" onclick="uploadClick()">Upload</button>
-              <button type="button" onclick="resetClick()">Reset</button>
-              <button onclick="discard()">Discard</button>
-              <button onclick="saveCode()">Save Arduino Code</button>
+              <button onclick="discard()">Discard blocks</button>
+              <button type="button" onclick="uploadClick()">Upload to Arduino</button>
+              <button type="button" style="margin-right: 25px;" onclick="resetClick()">Reset</button>
+              <!-- <button onclick="saveCode()">Save Arduino Code</button>
               <button onclick="save()">Save XML</button>
-              <button id="fakeload">Load XML</button>
+              <button id="fakeload">Load XML</button> -->
               
               <input type="file" id="load" style="display: none;"/>
               <!--button class="launch" onclick="runJS()">Run Program</button-->
