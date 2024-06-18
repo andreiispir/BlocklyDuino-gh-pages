@@ -28,8 +28,8 @@ var Mazing = function (id) {
 
   this.utter = null;
 
-  for (i = 0; i < this.mazeContainer.children.length; i++) {
-    for (j = 0; j < this.mazeContainer.children[i].children.length; j++) {
+  for (let i = 0; i < this.mazeContainer.children.length; i++) {
+    for (let j = 0; j < this.mazeContainer.children[i].children.length; j++) {
       var el = this.mazeContainer.children[i].children[j];
       this.maze[new Position(i, j)] = el;
       if (el.classList.contains("entrance")) {
@@ -55,9 +55,35 @@ var Mazing = function (id) {
   this.keyPressHandler = this.mazeKeyPressHandler.bind(this);
   document.addEventListener("keydown", this.keyPressHandler, false);
 
-  // activate joystick control
-  this.joystickControl = this.joystickControl.bind(this);
-  window.addEventListener("DOMContentLoaded", this.joystickControl, false);
+  this.keyPressHandler = this.joystickControl.bind(this);
+
+  // activate joystick control via WebSocket
+  document.addEventListener("DOMContentLoaded", () => {
+    this.joystickControl();
+  });
+
+  this.initSerial();
+};
+
+Mazing.prototype.initSerial = async function () {
+  try {
+    const port = await navigator.serial.requestPort();
+    await port.open({ baudRate: 9600 });
+
+    const reader = port.readable.getReader();
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+
+      const textDecoder = new TextDecoder();
+      const text = textDecoder.decode(value).trim(); // Trim whitespace
+
+      // Call joystickControl with the received input
+      this.joystickControl(text);
+    }
+  } catch (err) {
+    console.error('Error opening serial port:', err);
+  }
 };
 
 Mazing.prototype.enableSpeech = function () {
@@ -209,27 +235,38 @@ Mazing.prototype.mazeKeyPressHandler = function (e) {
 };
 
 // Handle Joystick movement
-Mazing.prototype.joystickControl = function() {
+Mazing.prototype.joystickControl = function(joystickInput) {
+
   var tryPos = new Position(this.heroPos.x, this.heroPos.y);
-  var joystickX = analogRead(A1);
-  var joystickY = analogRead(A0);
-  if (joystickX < 490) {
-      /* Move left */
+
+  switch (joystickInput) {
+    case 'L':
+      // Move left
       this.mazeContainer.classList.remove("face-right");
       tryPos.y--;
-  } else if (joystickX > 510) {
-      /* Move right */
+      break;
+    case 'R':
+      // Move right
       this.mazeContainer.classList.add("face-right");
       tryPos.y++;
-  } else if (joystickY < 490) {
-      /* Move up */
+      break;
+    case 'U':
+      // Move up
       tryPos.x--;
-  } else if (joystickY > 510) {
-      /* Move down */
+      break;
+    case 'D':
+      // Move down
       tryPos.x++;
+      break;
+    default:
+      return; // Exit if input is not recognized
   }
+
+  // Call your game function to attempt moving the hero
   this.tryMoveHero(tryPos);
 };
+
+module.exports = Mazing;
 
 Mazing.prototype.setChildMode = function () {
   this.childMode = true;
