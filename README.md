@@ -8,8 +8,9 @@ Welcome to our web-based educational block-based programming environment for Ard
 4. Start exploring.
 
 ### Arduino Setup
-* Before you start coding keep in mind the arduino should be setup as following:
+* Before you start coding keep in mind the Arduino should be setup as following:
 *   ArduRookies Maze : Respect the following scheme to connect the Joystick to the Arduino.
+   ![joystick](https://github.com/andreiispir/BlocklyDuino-gh-pages/blob/0523fc4cc70457aba5cf1424a2d307551fa90287/blockly/media/joystick.png)
 *   ArduRookies Music: Make sure that the Blue button is connected to digital pin 7, Red Button to digital pin 8 and White button to digital pin 9. The piezo buzzer should have it's positive pin connected to digital pin 4. In the end your setups should look like this:
 ![Screenshot 2024-06-18 184407](https://github.com/andreiispir/BlocklyDuino-gh-pages/assets/147340167/ec4f813b-d27c-44ab-bb3e-efd0507aeaf5)
 
@@ -18,7 +19,7 @@ Welcome to our web-based educational block-based programming environment for Ard
 
 * Web-based educational block-based programming environment
 * Programming Arduino with visually drag and drop code blocks
-* Different sounds for different blocks as Interaction Technique(Everytime a block is placed on the workspace, a sound is played(click.mp3). A different sound is played for every block.
+* Different sounds for different blocks as Interaction Technique(Everytime a block is placed on the workspace, a sound is played(click.mp3)). A different sound is played for every block.
 * Generate fully compatible Arduino source code
 * Upload code to Arduino board 
 * High contrast, block and text dimensions as UI Technique for color blind children
