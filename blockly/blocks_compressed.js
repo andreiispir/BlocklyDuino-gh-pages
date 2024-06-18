@@ -56,7 +56,7 @@ Blockly.Blocks.inout_buildin_led = {
   init: function () {
     this.setColour(230);
     this.appendDummyInput()
-      .appendField("Play Song 3")
+      .appendField("Play Twinkle Twinkle Little Star")
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
     this.setTooltip("green LED");
@@ -141,7 +141,7 @@ Blockly.Blocks.inout_notone = {
   init: function () {
     this.setColour(230);
     this.appendDummyInput()
-      .appendField("Play Song 2")
+      .appendField("Play Star Wars")
     this.setPreviousStatement(!0, null);
     this.setNextStatement(!0, null);
     this.setTooltip("green LED");
