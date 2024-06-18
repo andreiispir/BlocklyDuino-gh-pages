@@ -18,7 +18,7 @@ Welcome to our web-based educational block-based programming environment for Ard
 
 * Web-based educational block-based programming environment
 * Programming Arduino with visually drag and drop code blocks
-* Different sounds for different blocks as Interaction Technique(Everytime a block is placed on the workspace, a sound is played(click.mp3). A different sound is played for the following block: ![Example Image](block.jpg)) (sound1.wav). It is clear to us how to add different sounds to each block but we still have to implement this for each particular block in the following days.
+* Different sounds for different blocks as Interaction Technique(Everytime a block is placed on the workspace, a sound is played(click.mp3). A different sound is played for every block.
 * Generate fully compatible Arduino source code
 * Upload code to Arduino board 
 * High contrast, block and text dimensions as UI Technique for color blind children
